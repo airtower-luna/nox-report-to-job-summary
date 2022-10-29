@@ -1,0 +1,24 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    name: Test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Nox
+        uses: airtower-luna/nox@13cd7df9631b2be0340c3c398c3d62d5b612520d
+        with:
+          python-versions: '3.10, 3.11'
+      - name: setup annotations for flake8 results
+        uses: rbialon/flake8-annotations@v1
+      - name: Run tests and linter
+        run: |
+          nox
