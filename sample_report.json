@@ -1,0 +1,59 @@
+{
+  "result": 1,
+  "sessions": [
+    {
+      "args": {},
+      "name": "lint",
+      "result": "success",
+      "result_code": 1,
+      "signatures": [
+        "lint"
+      ]
+    },
+    {
+      "args": {},
+      "name": "typecheck",
+      "result": "success",
+      "result_code": 1,
+      "signatures": [
+        "typecheck"
+      ]
+    },
+    {
+      "args": {},
+      "name": "test",
+      "result": "skipped",
+      "result_code": 2,
+      "signatures": [
+        "test-3.9"
+      ]
+    },
+    {
+      "args": {},
+      "name": "test",
+      "result": "success",
+      "result_code": 1,
+      "signatures": [
+        "test-3.10"
+      ]
+    },
+    {
+      "args": {},
+      "name": "test",
+      "result": "skipped",
+      "result_code": 2,
+      "signatures": [
+        "test-3.11"
+      ]
+    },
+    {
+      "args": {},
+      "name": "coverage",
+      "result": "success",
+      "result_code": 1,
+      "signatures": [
+        "coverage"
+      ]
+    }
+  ]
+}
