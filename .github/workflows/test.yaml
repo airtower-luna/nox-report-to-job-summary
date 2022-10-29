@@ -21,4 +21,8 @@ jobs:
         uses: rbialon/flake8-annotations@v1
       - name: Run tests and linter
         run: |
-          nox
+          nox --report test-report.json
+      - name: Run this action on the Nox report from tests
+        uses: ./
+        with:
+          report: 'test-report.json'

@@ -1,0 +1,20 @@
+name: Nox Summary
+description: 'Create a job summary from Nox JSON report'
+inputs:
+  report:
+    description: 'path to the JSON report'
+    required: true
+branding:
+  icon: package
+  color: purple
+
+runs:
+  using: composite
+  steps:
+    - name: "Validate input"
+      id: helper
+      run: >
+        'python' "${GITHUB_ACTION_PATH}/nox_report.py" "${REPORT}" >>${GITHUB_STEP_SUMMARY}
+      env:
+        REPORT: '${{ inputs.report }}'
+      shell: bash
