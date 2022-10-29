@@ -26,3 +26,4 @@ jobs:
         uses: ./
         with:
           report: 'test-report.json'
+          title: Self-test

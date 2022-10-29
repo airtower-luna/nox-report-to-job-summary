@@ -4,6 +4,10 @@ inputs:
   report:
     description: 'path to the JSON report'
     required: true
+  title:
+    description: 'title for the generated summary section'
+    required: false
+    default: Nox
 branding:
   icon: package
   color: purple
@@ -14,7 +18,8 @@ runs:
     - name: "Validate input"
       id: helper
       run: >
-        'python' "${GITHUB_ACTION_PATH}/nox_report.py" "${REPORT}" >>${GITHUB_STEP_SUMMARY}
+        python "${GITHUB_ACTION_PATH}/nox_report.py" --report "${REPORT}" --title "${TITLE}" >>${GITHUB_STEP_SUMMARY}
       env:
         REPORT: '${{ inputs.report }}'
+        TITLE: '${{ inputs.title }}'
       shell: bash

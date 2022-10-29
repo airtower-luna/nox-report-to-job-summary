@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 import json
-import sys
 
 
-def parse_report(report_file):
+def parse_report(report_file, title):
     with open(report_file, 'r') as fh:
         report = json.load(fh)
 
-    print('## Nox\n')
+    print(f'## {title}\n')
     for session in report['sessions']:
         # looks weird, but is literally how Nox creates a "friendly name"
         # for a session
@@ -26,4 +25,11 @@ def parse_report(report_file):
 
 
 if __name__ == '__main__':
-    parse_report(sys.argv[1])
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-r', '--report', required=True,
+                        help='the Nox JSON report to parse')
+    parser.add_argument('-t', '--title', default='Nox',
+                        help='title for the generated summary section')
+    args = parser.parse_args()
+    parse_report(args.report, args.title)

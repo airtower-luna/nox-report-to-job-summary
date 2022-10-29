@@ -10,11 +10,11 @@ def sample_report():
 
 
 def test_output(capsys, sample_report):
-    nox_report.parse_report(str(sample_report))
+    nox_report.parse_report(str(sample_report), 'Nox test')
     out, _ = capsys.readouterr()
     assert out == textwrap.dedent(
         '''\
-        ## Nox
+        ## Nox test
 
         * lint: success :heavy_check_mark:
         * typecheck: success :heavy_check_mark:
