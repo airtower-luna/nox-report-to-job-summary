@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Nox
-        uses: airtower-luna/nox@13cd7df9631b2be0340c3c398c3d62d5b612520d
+        uses: wntrblm/nox@e7cf847b5cb8031cda8f8b6b60ccf7ad9e5eed5a
         with:
           python-versions: '3.10, 3.11'
       - name: setup annotations for flake8 results
