@@ -23,6 +23,7 @@ jobs:
         run: |
           nox --report test-report.json
       - name: Run this action on the Nox report from tests
+        if: always()
         uses: ./
         with:
           report: 'test-report.json'
