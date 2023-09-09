@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
     name: Test
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Nox
         uses: wntrblm/nox@2e8d24a2f21c8b752344ba61222b88238aac901f # 2023.04.22
         with:
