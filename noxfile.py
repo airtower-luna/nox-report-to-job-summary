@@ -8,7 +8,7 @@ def lint(session):
     session.run('flake8', '--statistics', '.')
 
 
-@nox.session(python=['3.10', '3.11'])
+@nox.session(python=['3.11', '3.12'])
 def test(session):
     """Run tests."""
     session.install('pytest')
