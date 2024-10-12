@@ -5,11 +5,12 @@ from pathlib import Path
 
 
 @pytest.fixture
-def sample_report():
+def sample_report() -> Path:
     return Path(__file__).parent / 'sample_report.json'
 
 
-def test_output(capsys, sample_report):
+def test_output(
+        capsys: pytest.CaptureFixture[str], sample_report: Path) -> None:
     nox_report.parse_report(str(sample_report), 'Nox test')
     out, _ = capsys.readouterr()
     assert out == textwrap.dedent(
