@@ -1,4 +1,5 @@
-# mypy: disallow-untyped-defs=False, check_untyped_defs=True
+# mypy: allow-untyped-defs, check-untyped-defs
+# mypy: disable-error-code="import-not-found"
 import nox
 
 
@@ -12,7 +13,7 @@ def lint(session):
 @nox.session
 def typecheck(session):
     """Typecheck using MyPy."""
-    session.install('mypy', 'pytest', 'nox')
+    session.install('mypy', 'pytest')
     session.run('mypy', '--strict', '.')
 
 
