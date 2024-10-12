@@ -2,7 +2,7 @@
 import json
 
 
-def parse_report(report_file, title):
+def parse_report(report_file: str, title: str) -> None:
     with open(report_file, 'r') as fh:
         report = json.load(fh)
 
