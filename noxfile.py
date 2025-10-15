@@ -2,6 +2,8 @@
 # mypy: disable-error-code="import-not-found"
 import nox
 
+nox.options.download_python = 'never'
+
 
 @nox.session
 def lint(session):
